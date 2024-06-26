@@ -43,7 +43,7 @@
 // export default Hero
 
 import { useState } from "react";
-import { hero, logo } from "../assets";
+import { hero } from "../assets";
 
 const Hero = () => {
     const [isActive, setIsActive] = useState(false);
