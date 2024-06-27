@@ -45,15 +45,14 @@
 import { useState } from "react";
 import { hero } from "../assets";
 
-const Hero = () => {
+const Hero = ({isVisible, setIsVisible}) => {
     const [isActive, setIsActive] = useState(false);
-    const [isVisible, setIsVisible] = useState(true);
 
     const handleClick = () => {
         setIsActive(!isActive);
         setTimeout(()=>{
             setIsVisible(!isVisible);
-        }, 9999)
+        }, 4899)
         
     };
 
