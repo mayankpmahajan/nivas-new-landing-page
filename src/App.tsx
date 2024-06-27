@@ -1,5 +1,6 @@
 import Info from "./components/Info";
 import Hero from "./components/Hero";
+import Bento from "./components/Bento";
 import Logo from "./components/Logo";
 import { useState } from "react";
 
@@ -12,6 +13,7 @@ function App() {
       <Logo/>
       <Hero isVisible = {isVisible} setIsVisible = {setIsVisible}/>
       <Info isVisbile = {isVisible} />
+      <Bento/>
     </div>
   );
 }
