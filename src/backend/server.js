@@ -1,8 +1,15 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import multer from 'multer';
 import xlsx from 'xlsx';
 import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = 3000;
@@ -10,17 +17,16 @@ const PORT = 3000;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.post('/api/save-form-data', (req, res) => {
-    const formData = req.body;
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
-    // Check if formData is empty
-    if (Object.keys(formData).length === 0) {
-        return res.status(400).json({ message: 'No form data received' });
-    }
+const resumesDir = path.join(__dirname, 'resumes');
+if (!fs.existsSync(resumesDir)) {
+    fs.mkdirSync(resumesDir);
+}
 
-    // Load existing workbook or create a new one
+const saveFormDataToExcel = (filePath, formData, resumeBuffer = null) => {
     let workbook;
-    const filePath = './form-data.xlsx';
 
     if (fs.existsSync(filePath)) {
         workbook = xlsx.readFile(filePath);
@@ -30,21 +36,55 @@ app.post('/api/save-form-data', (req, res) => {
         workbook.Sheets['Sheet1'] = xlsx.utils.json_to_sheet([]);
     }
 
-    // Convert form data to a row and append to the existing sheet
     const worksheet = workbook.Sheets['Sheet1'];
     const jsonData = xlsx.utils.sheet_to_json(worksheet, { header: 1 });
-    jsonData.push(Object.values(formData));
+    const formDataValues = Object.values(formData);
 
-    // Convert JSON data back to sheet
+    if (resumeBuffer) {
+        const resumeFileName = `resume_${Date.now()}.pdf`;
+        fs.writeFileSync(path.join(resumesDir, resumeFileName), resumeBuffer);
+        formDataValues.push(resumeFileName);
+    }
+
+    jsonData.push(formDataValues);
     workbook.Sheets['Sheet1'] = xlsx.utils.json_to_sheet(jsonData);
-
-    // Save the workbook
     xlsx.writeFile(workbook, filePath);
+};
 
-    res.json({
-        message: 'Form data saved successfully!',
-        formData: formData
-    });
+app.post('/api/save-form-data/:formType', upload.single('resume'), (req, res) => {
+    const formData = req.body;
+    const formType = req.params.formType;
+    const resumeBuffer = req.file ? req.file.buffer : null;
+
+    if (!formType) {
+        return res.status(400).json({ message: 'Invalid form type' });
+    }
+
+    if (Object.keys(formData).length === 0) {
+        return res.status(400).json({ message: 'No form data received' });
+    }
+
+    const filePaths = {
+        brandEnquiry: './brandEnquiry.xlsx',
+        investorRelations: './investorRelations.xlsx',
+        earlyAccess: './earlyAccess.xlsx',
+        joinUs: './joinUs.xlsx',
+    };
+
+    if (!filePaths[formType]) {
+        return res.status(400).json({ message: 'Invalid form type' });
+    }
+
+    try {
+        saveFormDataToExcel(filePaths[formType], formData, resumeBuffer);
+        res.json({
+            message: `${formType} form data saved successfully!`,
+            formData: formData
+        });
+    } catch (error) {
+        console.error('Error saving form data:', error);
+        res.status(500).json({ message: 'Error saving form data' });
+    }
 });
 
 app.listen(PORT, () => {

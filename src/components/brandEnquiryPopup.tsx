@@ -34,7 +34,7 @@ const brandEnquiryPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) =
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/api/save-form-data', {
+            const response = await fetch('http://localhost:3000/api/save-form-data/brandEnquiry', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

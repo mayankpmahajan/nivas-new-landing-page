@@ -32,7 +32,7 @@ const investorRelationsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3000/api/save-form-data', {
+            const response = await fetch('http://localhost:3000/api/save-form-data/investorRelations', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -117,8 +117,8 @@ const investorRelationsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose
 
                         <div className="mb-2 lg:mb-4">
                             <textarea
-                                id="enquiry"
-                                name="enquiry"
+                                id="message"
+                                name="message"
                                 placeholder="Write a message"
                                 value={formData.message}
                                 onChange={handleChange}

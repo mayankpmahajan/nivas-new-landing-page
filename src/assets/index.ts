@@ -31,6 +31,12 @@ import brand7 from './brand7.svg'
 import brand8 from './brand8.svg'
 import brand9 from './brand9.svg'
 
+import facebookLogo from './facebook_logo.svg'
+import logoYellow from './logoYellowFooter.svg'
+import instagramLogo from './instagramLogo.svg'
+import twitterLogo from './twitterLogo.svg'
+import map from './map.svg'
+
 export{
     hero, 
     logo,
@@ -60,4 +66,9 @@ export{
     brand7,
     brand8,
     brand9,
+    facebookLogo,
+    logoYellow,
+    instagramLogo,
+    twitterLogo,
+    map
 }

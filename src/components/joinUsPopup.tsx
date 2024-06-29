@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { brandEnquiryPopup, joinUsPopup } from "../assets";
+import { joinUsPopup } from "../assets";
 
 interface PopupProps {
     isOpen: boolean;
@@ -51,7 +51,7 @@ const joinUsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) => {
         }
 
         try {
-            const response = await fetch('http://localhost:3000/api/save-form-data', {
+            const response = await fetch('http://localhost:3000/api/save-form-data/joinUs', {
                 method: 'POST',
                 body: formDataToSend,
             });
