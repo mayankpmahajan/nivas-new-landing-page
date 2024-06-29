@@ -1,8 +1,8 @@
-import Info from "./components/Info";
 import Hero from "./components/Hero";
 import Bento from "./components/Bento";
 import Logo from "./components/Logo";
 import { useState } from "react";
+import Info from "./components/Info";
 
 function App() {
   

@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import { brandEnquiryPopup } from "../assets";
+import { brandEnquiryPopup, investorRelationsPopup } from "../assets";
 
 interface PopupProps {
     isOpen: boolean;
@@ -8,9 +8,8 @@ interface PopupProps {
 
 interface FormData {
     name: string;
-    subject: string;
     email: string;
-    enquiry: string;
+    message: string;
 }
 
 const investorRelationsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) => {
@@ -18,9 +17,8 @@ const investorRelationsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose
     const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
     const [formData, setFormData] = useState<FormData>({
         name: '',
-        subject: '',
         email: '',
-        enquiry: ''
+        message: ''
     });
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -82,12 +80,12 @@ const investorRelationsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose
                 className="bg-white rounded-lg shadow-lg relative w-full max-w-lg md:max-w-md lg:max-w-xl"
             >
                 <section className="h-[20%]">
-                    <img src={brandEnquiryPopup} alt="brandEnquiry" className="object-cover h-full w-full rounded-t-lg" />
+                    <img src={investorRelationsPopup} alt="investorRelations" className="object-cover h-full w-full rounded-t-lg" />
                 </section>
 
                 <section className="p-6 md:p-8">
-                    <h1 className="text-2xl md:text-3xl font-bold mb-2">Brand Enquiry</h1>
-                    <h3 className="text-base md:text-lg font-medium text-gray-700 mb-4">We truly believe your brand could be doing as great as you are. Speak to us.</h3>
+                    <h1 className="text-2xl md:text-3xl font-bold mb-2">Investor Relations</h1>
+                    <h3 className="text-base md:text-lg font-medium text-gray-700 mb-4">We are not your usual marketplace, we have heard what our consumers want and we bring it big! <span>Hear us out!</span></h3>
 
                     <form onSubmit={handleSubmit} className="max-w-md mx-auto">
                         <div className="mb-4">

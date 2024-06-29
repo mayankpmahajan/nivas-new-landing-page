@@ -79,18 +79,18 @@ const brandEnquiryPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) =
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div
                 ref={popupRef}
-                className="bg-white rounded-lg shadow-lg relative w-full max-w-lg md:max-w-md lg:max-w-xl"
+                className="bg-white w-[80vw] lg:h-[70vh] lg:w-[70vw] rounded-xl lg:rounded-3xl relative flex font-montserrat"
             >
-                <section className="h-[20%]">
+                <section className="w-[20%] h-[100%] hidden lg:block">
                     <img src={brandEnquiryPopup} alt="brandEnquiry" className="object-cover h-full w-full rounded-t-lg" />
                 </section>
 
-                <section className="p-6 md:p-8">
-                    <h1 className="text-2xl md:text-3xl font-bold mb-2">Brand Enquiry</h1>
-                    <h3 className="text-base md:text-lg font-medium text-gray-700 mb-4">We truly believe your brand could be doing as great as you are. Speak to us.</h3>
+                <section className="m-[4vw] lg:m-[2vw]">
+                    <h1 className="text-2xl lg:text-[2.5rem] font-bold lg:mb-4 ">Brand Enquiry</h1>
+                    <h3 className="text-sm lg:text-lg font-medium text-gray-700 mb-2 lg:mb-4">We truly believe your brand could be doing as great as you are. Speak to us.</h3>
 
-                    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-                        <div className="mb-4">
+                    <form onSubmit={handleSubmit} className="max-w-md ">
+                        <div className="mb-2 lg:mb-4">
                             <input
                                 type="text"
                                 id="name"
@@ -98,12 +98,12 @@ const brandEnquiryPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) =
                                 placeholder="Name"
                                 value={formData.name}
                                 onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                                className="w-full px-1 lg:px-3 py-1 lg:py-2  border border-gray-300 rounded-md shadow-sm text-sm lg:text-base"
                                 required
                             />
                         </div>
 
-                        <div className="mb-4">
+                        <div className="mb-2 lg:mb-4">
                             <input
                                 type="text"
                                 id="subject"
@@ -111,12 +111,12 @@ const brandEnquiryPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) =
                                 placeholder="Subject"
                                 value={formData.subject}
                                 onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                                className="w-full px-1 lg:px-3 py-1 lg:py-2  border border-gray-300 rounded-md shadow-sm text-sm lg:text-base"
                                 required
                             />
                         </div>
 
-                        <div className="mb-4">
+                        <div className="mb-2 lg:mb-4">
                             <input
                                 type="email"
                                 id="email"
@@ -124,27 +124,27 @@ const brandEnquiryPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) =
                                 placeholder="Email"
                                 value={formData.email}
                                 onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+                                className="w-full px-1 lg:px-3 py-1 lg:py-2  border border-gray-300 rounded-md shadow-sm text-sm lg:text-base"
                                 required
                             />
                         </div>
 
-                        <div className="mb-4">
+                        <div className="mb-2 lg:mb-4">
                             <textarea
                                 id="enquiry"
                                 name="enquiry"
                                 placeholder="Enquiry"
                                 value={formData.enquiry}
                                 onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                                rows={4}
+                                className="w-full px-1 lg:px-3 py-1 lg:py-2  border border-gray-300 rounded-md shadow-sm text-sm lg:text-base"
+                                rows={3}
                                 required
                             />
                         </div>
 
                         <button
                             type="submit"
-                            className="w-full py-2 px-4 bg-yellow-500 text-white font-semibold rounded-md shadow-sm hover:bg-yellow-600"
+                            className="lg:w-[10vw] py-1 px-4 bg-yellow-500 text-black font-semibold rounded-md shadow-sm hover:bg-yellow-600 "
                         >
                             Submit
                         </button>
@@ -154,7 +154,7 @@ const brandEnquiryPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) =
                             </div>
                         )}
                         {submissionStatus === 'error' && (
-                            <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-md">
+                            <div className="mt-2 p-4 bg-red-100 text-red-700 rounded-md">
                                 Failed to send enquiry. Please try again.
                             </div>
                         )}
