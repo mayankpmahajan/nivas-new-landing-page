@@ -52,7 +52,7 @@ const Hero = ({isVisible, setIsVisible}) => {
         setIsActive(!isActive);
         setTimeout(()=>{
             setIsVisible(!isVisible);
-        }, 4899)
+        }, 999)
         
     };
 
@@ -100,7 +100,7 @@ const Hero = ({isVisible, setIsVisible}) => {
       </section>
 
       <section className="my-2 absolute bottom-4 ml-4 lg:ml-10  lg:relative lg:bottom-0">
-          <button className="font-medium text-white bg-[#FFB300] text-2xl lg:text-4xl lg:px-10 lg:pb-2 rounded-lg p-1 my-4 animate-slideInFromLeft ">
+          <button className="font-medium text-white bg-[#FFB300] text-lg lg:text-4xl lg:px-10 lg:pb-2 rounded-[0.6rem] px-2 py-1 my-4 animate-slideInFromLeft ">
             Subscribe
           </button>
         </section>

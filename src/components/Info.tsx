@@ -20,7 +20,7 @@ const Info = ({isVisbile}) => {
           </p>
         </div>
 
-        <div className={` basis-1/3 h-[50vh] ${isVisbile ? 'lg:animate-none' : 'lg:animate-slideInFromBottom'}`}>
+        <div className={` basis-1/3 h-[50vh] hidden lg:block ${isVisbile ? 'lg:animate-none' : 'lg:animate-slideInFromBottom'}`}>
           <img src={aboutUs} alt="aboutUs" className="hidden lg:block object-cover h-full w-full lg:rounded-2xl" />
         </div>
       </section>

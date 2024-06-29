@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         tusker: ['TuskerGrotesk'], 
         clash: ['ClashDisplay'],
+        montserrat: ['Montserrat']
       },
 
       keyframes: {
@@ -31,11 +32,11 @@ export default {
       },
       animation: {
         fadeIn: 'fadeIn 3s ease-in-out', // You can adjust the duration and timing function
-        slideInFromLeft: 'slideInFromLeft 3s ease-in-out',
-        slideInFromBottom: 'slideInFromBottom 3s ease-in-out',
-        slideOutFromBottom: 'slideOutFromBottom 5s ease-out',
-        slideInFromBottom5: 'slideInFromBottom 5s ease-in-out',
-        slideInFromBottom7: 'slideInFromBottom 7s ease-in-out',
+        slideInFromLeft: 'slideInFromLeft 1s ease-in-out',
+        slideInFromBottom: 'slideInFromBottom 1s ease-in-out',
+        slideOutFromBottom: 'slideOutFromBottom 1s ease-out',
+        slideInFromBottom5: 'slideInFromBottom 1s ease-in-out',
+        slideInFromBottom7: 'slideInFromBottom 1s ease-in-out',
 
       },
   },
