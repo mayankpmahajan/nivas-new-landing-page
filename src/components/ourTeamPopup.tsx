@@ -1,59 +1,13 @@
-import React, { useRef, useEffect, useState } from "react";
-import { brandEnquiryPopup } from "../assets";
+import React, { useRef, useEffect } from "react";
+import { ourTeamPopup, team1, team2, team3 } from "../assets";
 
 interface PopupProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-interface FormData {
-    name: string;
-    subject: string;
-    email: string;
-    enquiry: string;
-}
-
 const ourTeamPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) => {
     const popupRef = useRef<HTMLDivElement>(null);
-    const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
-    const [formData, setFormData] = useState<FormData>({
-        name: '',
-        subject: '',
-        email: '',
-        enquiry: ''
-    });
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: value
-        }));
-    };
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('http://localhost:3000/api/save-form-data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            console.log(response);
-
-            if (response.ok) {
-                setSubmissionStatus('success');
-            } else {
-                setSubmissionStatus('error');
-            }
-        } catch (error) {
-            setSubmissionStatus('error');
-            console.error('An error occurred:', error);
-        }
-    };
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -76,89 +30,46 @@ const ourTeamPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) => {
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div
                 ref={popupRef}
-                className="bg-white rounded-lg shadow-lg relative w-full max-w-lg md:max-w-md lg:max-w-xl"
+                className="bg-white w-[90vw] md:w-[80vw] lg:w-[70vw] h-auto lg:h-[70vh] rounded-xl lg:rounded-3xl relative flex flex-col lg:flex-row font-montserrat overflow-hidden"
             >
-                <section className="h-[20%]">
-                    <img src={brandEnquiryPopup} alt="brandEnquiry" className="object-cover h-full w-full rounded-t-lg" />
+                <section className="hidden lg:block w-full lg:w-[30%] h-[30vh] lg:h-full">
+                    <img src={ourTeamPopup} alt="ourTeam" className="object-cover h-full w-full rounded-t-lg lg:rounded-l-3xl lg:rounded-t-none" />
                 </section>
 
-                <section className="p-6 md:p-8">
-                    <h1 className="text-2xl md:text-3xl font-bold mb-2">Brand Enquiry</h1>
-                    <h3 className="text-base md:text-lg font-medium text-gray-700 mb-4">We truly believe your brand could be doing as great as you are. Speak to us.</h3>
-
-                    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-                        <div className="mb-4">
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                placeholder="Name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                                required
-                            />
-                        </div>
-
-                        <div className="mb-4">
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                placeholder="Subject"
-                                value={formData.subject}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                                required
-                            />
-                        </div>
-
-                        <div className="mb-4">
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                                required
-                            />
-                        </div>
-
-                        <div className="mb-4">
-                            <textarea
-                                id="enquiry"
-                                name="enquiry"
-                                placeholder="Enquiry"
-                                value={formData.enquiry}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                                rows={4}
-                                required
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            className="w-full py-2 px-4 bg-yellow-500 text-white font-semibold rounded-md shadow-sm hover:bg-yellow-600"
-                        >
-                            Submit
-                        </button>
-                        {submissionStatus === 'success' && (
-                            <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-md">
-                                Enquiry successfully sent!
+                <section className="m-[4vw] md:m-[3vw] lg:m-[2vw] flex-grow flex flex-col items-center justify-center overflow-y-auto">
+                    <h1 className="text-xl md:text-2xl lg:text-[2.5rem] font-bold lg:mb-4 text-center">Our Team</h1>
+                   
+                    <section className="flex flex-wrap justify-center gap-4 w-full">
+                        <div className="flex flex-col items-center p-1 md:p-4 rounded-lg w-full md:w-full lg:w-[30%]">
+                            <div className="rounded-full overflow-hidden h-12 w-12 md:h-24 md:w-24 lg:h-32 lg:w-32">
+                                <img src={team2} alt="Naveen" className="h-full w-full object-cover" />
                             </div>
-                        )}
-                        {submissionStatus === 'error' && (
-                            <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-md">
-                                Failed to send enquiry. Please try again.
+                            <h3 className="mt-2 text-black text-sm md:text-lg lg:text-2xl font-semibold text-center">Naveen Kumar</h3>
+                            <p className="text-[#C18904] text-xs md:text-md lg:text-lg font-medium text-center">Founder & CEO</p>
+                            <p className="text-black text-center mt-2 text-[0.5rem] md:text-xs lg:text-base ">Ex SAP-Incture | Traform | OYO 3rd generation business owner having diverse backgrounds across industries. He has built & scaled products meeting the trends and inquisitiveness of consumers.</p>
+                        </div>
+
+                        <div className="flex flex-col items-center p-1 md:p-4 rounded-lg w-full md:w-full lg:w-[30%]">
+                            <div className="rounded-full overflow-hidden h-12 w-12 md:h-24 md:w-24 lg:h-32 lg:w-32">
+                                <img src={team1} alt="Venugopal" className="h-full w-full object-cover" />
                             </div>
-                        )}
-                    </form>
+                            <h3 className="mt-2 text-black text-sm md:text-lg lg:text-2xl font-bold text-center">Venugopal S</h3>
+                            <p className="text-[#C18904] text-xs md:text-md lg:text-lg text-center">Founder & CSO</p>
+                            <p className="text-black text-center mt-2 text-[0.5rem] md:text-sm lg:text-base">A seasoned veteran in the fashion industry with over 30 years of sourcing & executing on demand fashion for large retail brands.</p>
+                        </div>
+
+                        <div className="flex flex-col items-center p-1 md:p-4 rounded-lg w-full md:w-full lg:w-[30%]">
+                            <div className="rounded-full overflow-hidden h-12 w-12 md:h-24 md:w-24 lg:h-32 lg:w-32">
+                                <img src={team3} alt="Dipak" className="h-full w-full object-cover" />
+                            </div>
+                            <h3 className="mt-2 text-black text-sm md:text-lg lg:text-2xl font-bold text-center">Dipak Mamdapure</h3>
+                            <p className="text-[#C18904] text-xs md:text-md lg:text-lg text-center">Co-Founder & CTO</p>
+                            <p className="text-black text-center mt-2 text-[0.5rem] md:text-sm lg:text-base">18 years of technology experience, having contributed to complex product building during his tenure.</p>
+                        </div>
+                    </section>
                 </section>
             </div>
         </div>

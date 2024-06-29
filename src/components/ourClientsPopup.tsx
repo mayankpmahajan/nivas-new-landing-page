@@ -1,59 +1,14 @@
 import React, { useRef, useEffect, useState } from "react";
-import { brandEnquiryPopup } from "../assets";
+import { brand1, brand2, brand3, brand4, brand5, brand6, brand7, brand8, brand9, ourClientsPopup } from "../assets";
 
 interface PopupProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-interface FormData {
-    name: string;
-    subject: string;
-    email: string;
-    enquiry: string;
-}
-
 const ourClientsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) => {
     const popupRef = useRef<HTMLDivElement>(null);
     const [submissionStatus, setSubmissionStatus] = useState<string | null>(null);
-    const [formData, setFormData] = useState<FormData>({
-        name: '',
-        subject: '',
-        email: '',
-        enquiry: ''
-    });
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData((prevFormData) => ({
-            ...prevFormData,
-            [name]: value
-        }));
-    };
-
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('http://localhost:3000/api/save-form-data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            console.log(response);
-
-            if (response.ok) {
-                setSubmissionStatus('success');
-            } else {
-                setSubmissionStatus('error');
-            }
-        } catch (error) {
-            setSubmissionStatus('error');
-            console.error('An error occurred:', error);
-        }
-    };
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -76,89 +31,34 @@ const ourClientsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) => 
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div
                 ref={popupRef}
-                className="bg-white rounded-lg shadow-lg relative w-full max-w-lg md:max-w-md lg:max-w-xl"
+                className="bg-white w-[90vw] md:w-[80vw] lg:w-[70vw] h-auto lg:h-[70vh] rounded-xl lg:rounded-3xl relative flex flex-col lg:flex-row font-montserrat"
             >
-                <section className="h-[20%]">
-                    <img src={brandEnquiryPopup} alt="brandEnquiry" className="object-cover h-full w-full rounded-t-lg" />
+                <section className="hidden lg:block w-full lg:w-[30%] h-[30vh] lg:h-full">
+                    <img src={ourClientsPopup} alt="ourClients" className="object-cover h-full w-full rounded-t-lg lg:rounded-l-3xl lg:rounded-t-none" />
                 </section>
 
-                <section className="p-6 md:p-8">
-                    <h1 className="text-2xl md:text-3xl font-bold mb-2">Brand Enquiry</h1>
-                    <h3 className="text-base md:text-lg font-medium text-gray-700 mb-4">We truly believe your brand could be doing as great as you are. Speak to us.</h3>
-
-                    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
-                        <div className="mb-4">
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                placeholder="Name"
-                                value={formData.name}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                                required
-                            />
+                <section className="m-[4vw] lg:m-[2vw] flex-grow flex flex-col items-center justify-center">
+                    <h1 className="text-2xl lg:text-[3.5rem] font-bold lg:mb-4 lg:p-2 text-center">Brand Enquiry</h1>
+                    
+                    <section className="w-full flex flex-col items-center">
+                        <div className="grid grid-cols-5 gap-4 py-6 lg:py-12 px-2 justify-items-center">
+                            <img src={brand1} alt="brand1" className="h-[8vw] lg:h-[6vw]" />
+                            <img src={brand2} alt="brand2" className="h-[8vw] lg:h-[6vw]" />
+                            <img src={brand3} alt="brand3" className="h-[8vw] lg:h-[6vw]" />
+                            <img src={brand4} alt="brand4" className="h-[8vw] lg:h-[6vw]" />
+                            <img src={brand5} alt="brand5" className="h-[8vw] lg:h-[6vw]" />
                         </div>
 
-                        <div className="mb-4">
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                placeholder="Subject"
-                                value={formData.subject}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                                required
-                            />
+                        <div className="grid grid-cols-4 gap-4 py-4 px-2 mt-4 lg:mt-8 justify-items-center">
+                            <img src={brand6} alt="brand6" className="h-[8vw] lg:h-[7vw]" />
+                            <img src={brand7} alt="brand7" className="h-[8vw] lg:h-[7vw]" />
+                            <img src={brand8} alt="brand8" className="h-[8vw] lg:h-[7vw]" />
+                            <img src={brand9} alt="brand9" className="h-[8vw] lg:h-[7vw]" />
                         </div>
-
-                        <div className="mb-4">
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Email"
-                                value={formData.email}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                                required
-                            />
-                        </div>
-
-                        <div className="mb-4">
-                            <textarea
-                                id="enquiry"
-                                name="enquiry"
-                                placeholder="Enquiry"
-                                value={formData.enquiry}
-                                onChange={handleChange}
-                                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm"
-                                rows={4}
-                                required
-                            />
-                        </div>
-
-                        <button
-                            type="submit"
-                            className="w-full py-2 px-4 bg-yellow-500 text-white font-semibold rounded-md shadow-sm hover:bg-yellow-600"
-                        >
-                            Submit
-                        </button>
-                        {submissionStatus === 'success' && (
-                            <div className="mt-4 p-4 bg-green-100 text-green-700 rounded-md">
-                                Enquiry successfully sent!
-                            </div>
-                        )}
-                        {submissionStatus === 'error' && (
-                            <div className="mt-4 p-4 bg-red-100 text-red-700 rounded-md">
-                                Failed to send enquiry. Please try again.
-                            </div>
-                        )}
-                    </form>
+                    </section>
                 </section>
             </div>
         </div>
