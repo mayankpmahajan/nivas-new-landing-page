@@ -2,7 +2,7 @@ import { aboutUs, ourPlatform } from "../assets";
 
 const Info = ({isVisbile}) => {
   return (
-    <main className="overflow-hidden mx-8 my-24 font-montserrat">
+    <main className="overflow-hidden mx-8 mt-24 font-montserrat">
       <section className="lg:flex lg:flex-row lg:space-x-12 lg:mb-12 lg:max-h-[50vh]">
         <div className={`bg-orange-700 rounded-2xl bg-gradient-to-r from-[#C13F01] to-[#EE8623] p-4 lg:p-6 text-white basis-2/3 lg:rounded-3xl ${isVisbile ? 'animate-none' : 'animate-slideInFromBottom'}`}>
           <h1 className="font-tusker text-3xl mb-2 lg:text-[3rem] lg:leading-relaxed">ABOUT US</h1>
