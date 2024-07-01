@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { brandEnquiry, earlyAccess, investorRelations, joinUs, ourClients, ourTeam } from '../assets';
 import BrandEnquiryPopupComponent from './brandEnquiryPopup';
 import OurClientsPopupComponent from './ourClientsPopup';
@@ -12,6 +12,10 @@ const Bento = () => {
 
   const openPopup = (popupType: string) => setPopupOpen(popupType);
   const closePopup = () => setPopupOpen(null);
+
+  const openJoinUsPopup = () => {
+    setPopupOpen('joinUs'); // Open Join Us popup
+  };
 
   return (
     <main className='mx-8'>
@@ -37,7 +41,7 @@ const Bento = () => {
         <div className='h-[25vh] lg:basis-4/7 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={() => openPopup('ourTeam')}>
           <img src={ourTeam} alt="ourTeam" className='h-full w-full object-cover rounded-3xl transform transition-transform duration-300 hover:scale-125' />
         </div>
-        <div className='h-[25vh] lg:basis-3/7 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={() => openPopup('joinUs')}>
+        <div className='h-[25vh] lg:basis-3/7 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={openJoinUsPopup}>
           <img src={joinUs} alt="joinUs" className='h-full w-full object-cover rounded-3xl transform transition-transform duration-300 hover:scale-125' />
         </div>
       </section>
