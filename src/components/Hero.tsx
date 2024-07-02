@@ -1,21 +1,22 @@
 import { useState } from "react";
 import { hero } from "../assets";
 
-const Hero = ({isVisible, setIsVisible}) => {
+const Hero = ({isVisible, setIsVisible, scrollToAboutUs}) => {
     const [isActive, setIsActive] = useState(false);
 
     const handleClick = () => {
-        setIsActive(!isActive);
-        setTimeout(()=>{
-            setIsVisible(!isVisible);
-        }, 999)
+       scrollToAboutUs();
+      //  setIsActive(!isActive);
+      //  setTimeout(()=>{
+      //       setIsVisible(!isVisible);
+      //   }, 999)
         
     };
 
   return (
-    <main className={`h-screen w-screen bg-black max-container overflow-hidden relative  ${isActive ? 'animate-slideOutFromBottom':'bg-black'} ${isVisible ? `block` : `hidden`}`} onClick={handleClick}>
+    <main className={`h-screen max-w-screen bg-black max-container relative  ${isActive ? 'animate-slideOutFromBottom':'bg-black'} `} onClick={handleClick}>
       
-      <div className="h-[4rem] w-full bg-transparent"></div>
+      <div className="h-[4rem] w-full "></div>
 
       <section className="text-[#FFB300] font-tusker mt-5 lg:flex gap-[2vw] ml-4 mr-4 animate-fadeIn ">
         <div className="text-[22vw] relative flex flex-1 justify-center  lg:text-[13vw] lg:basis-3/5 lg:justify-end ">
@@ -65,3 +66,4 @@ const Hero = ({isVisible, setIsVisible}) => {
 };
 
 export default Hero;
+

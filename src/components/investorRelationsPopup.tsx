@@ -77,7 +77,7 @@ const investorRelationsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div
                 ref={popupRef}
-                className="bg-white w-[80vw] lg:h-[70vh] lg:w-[70vw] rounded-xl lg:rounded-3xl relative flex font-montserrat"
+                className="bg-white w-[80vw] lg:h-[70vh] lg:w-[70vw] rounded-xl lg:rounded-lg relative flex "
             >
                 <section className="w-[20%] h-[100%] hidden lg:block">
                     <img src={investorRelationsPopup} alt="investorRelations" className="object-cover h-full w-full rounded-t-lg" />

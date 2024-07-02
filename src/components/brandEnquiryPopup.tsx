@@ -76,13 +76,13 @@ const brandEnquiryPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) =
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center ">
             <div
                 ref={popupRef}
-                className="bg-white w-[80vw] lg:h-[70vh] lg:w-[70vw] rounded-xl lg:rounded-3xl relative flex font-montserrat"
+                className="bg-white w-[80vw] lg:h-[70vh] lg:w-[70vw] rounded-xl lg:rounded-lg relative flex "
             >
                 <section className="w-[20%] h-[100%] hidden lg:block">
-                    <img src={brandEnquiryPopup} alt="brandEnquiry" className="object-cover h-full w-full rounded-t-lg" />
+                    <img src={brandEnquiryPopup} alt="brandEnquiry" className="object-cover h-full w-full rounded-lg" />
                 </section>
 
                 <section className="m-[4vw] lg:m-[2vw]">

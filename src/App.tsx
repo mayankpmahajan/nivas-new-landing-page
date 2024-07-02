@@ -7,13 +7,37 @@ import Footer from './components/Footer';
 
 function App() {
   const [isVisible, setIsVisible] = useState(true);
-  const [joinUsPopupOpen, setJoinUsPopupOpen] = useState(false); // State to manage JoinUs popup
-
+  // const [joinUsPopupOpen, setJoinUsPopupOpen] = useState(false); // State to manage JoinUs popup
+  const [popupOpen, setPopupOpen] = useState<string | null>(null);
   const aboutUsRef = useRef(null);
+  const brandEnquiryRef = useRef(null);
+  const careersRef = useRef(null);
+  const investorRelationsRef = useRef(null);
+
+
+  const openPopup = (popupType: string) => setPopupOpen(popupType);
 
   const scrollToAboutUs = () => {
     if (aboutUsRef.current) {
       aboutUsRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToBrandEnquiry = () => {
+    if (brandEnquiryRef.current) {
+      brandEnquiryRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToCareers = () => {
+    if (careersRef.current) {
+      careersRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToInvestorRelations = () => {
+    if (investorRelationsRef.current) {
+      investorRelationsRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -26,14 +50,15 @@ function App() {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="">
       <Logo />
-      <Hero isVisible={isVisible} setIsVisible={setIsVisible} />
+      <Hero isVisible={isVisible} setIsVisible={setIsVisible} scrollToAboutUs={scrollToAboutUs}/>
       <Info isVisible={true} aboutUsRef={aboutUsRef} />
-      <Bento joinUsPopupOpen={joinUsPopupOpen} closeJoinUsPopup={closeJoinUsPopup} />
-      <Footer scrollToAboutUs={scrollToAboutUs} openJoinUsPopup={openJoinUsPopup} />
+      <Bento popupOpen={popupOpen} setPopupOpen={setPopupOpen} openPopup={openPopup}  brandEnquiryRef={brandEnquiryRef} careersRef={careersRef} investorRelationsRef = {investorRelationsRef} />
+      <Footer scrollToAboutUs={scrollToAboutUs} setPopupOpen = {setPopupOpen}  openPopup = {openPopup} scrollToBrandEnquiry={scrollToBrandEnquiry} scrollToCareers={scrollToCareers} scrollToInvestorRelations={scrollToInvestorRelations}/>
     </div>
   );
 }
 
 export default App;
+

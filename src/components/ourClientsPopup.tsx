@@ -31,17 +31,17 @@ const ourClientsPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) => 
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50  font-semibold ">
             <div
                 ref={popupRef}
-                className="bg-white w-[90vw] md:w-[80vw] lg:w-[70vw] h-auto lg:h-[70vh] rounded-xl lg:rounded-3xl relative flex flex-col lg:flex-row font-montserrat"
+                className="bg-white w-[90vw] md:w-[80vw] lg:w-[70vw] h-auto lg:h-[70vh] rounded-xl lg:rounded-lg relative flex flex-col lg:flex-row "
             >
                 <section className="hidden lg:block w-full lg:w-[30%] h-[30vh] lg:h-full">
-                    <img src={ourClientsPopup} alt="ourClients" className="object-cover h-full w-full rounded-t-lg lg:rounded-l-3xl lg:rounded-t-none" />
+                    <img src={ourClientsPopup} alt="ourClients" className="object-cover h-full w-full rounded-t-lg lg:rounded-l-lg lg:rounded-lg" />
                 </section>
 
                 <section className="m-[4vw] lg:m-[2vw] flex-grow flex flex-col items-center justify-center">
-                    <h1 className="text-2xl lg:text-[3.5rem] font-bold lg:mb-4 lg:p-2 text-center">Brand Enquiry</h1>
+                    <h1 className="text-2xl lg:text-[3.5rem] font-bold lg:mb-4 lg:p-2 text-center ">Our Clients</h1>
                     
                     <section className="w-full flex flex-col items-center">
                         <div className="grid grid-cols-5 gap-4 py-6 lg:py-12 px-2 justify-items-center">

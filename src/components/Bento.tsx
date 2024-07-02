@@ -7,10 +7,10 @@ import EarlyAccessPopupComponent from './earlyAccessPopup';
 import OurTeamPopupComponent from './ourTeamPopup';
 import JoinUsPopupComponent from './joinUsPopup';
 
-const Bento = () => {
-  const [popupOpen, setPopupOpen] = useState<string | null>(null);
+const Bento = ({popupOpen, setPopupOpen, openPopup, investorRelationsRef, careersRef, brandEnquiryRef}) => {
+  
 
-  const openPopup = (popupType: string) => setPopupOpen(popupType);
+  
   const closePopup = () => setPopupOpen(null);
 
   const openJoinUsPopup = () => {
@@ -20,8 +20,8 @@ const Bento = () => {
   return (
     <main className='mx-8'>
       <section className='flex flex-col gap-4 mt-8 mb-4 lg:mx-8 lg:flex-row'>
-        <div className='h-[25vh] lg:basis-3/5 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={() => openPopup('brandEnquiry')}>
-          <img src={brandEnquiry} alt="brandEnquiry" className='h-full w-full object-cover rounded-3xl transform transition-transform duration-300 hover:scale-125' />
+        <div ref = {brandEnquiryRef} className='h-[25vh] lg:basis-3/5 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={() => openPopup('brandEnquiry')}>
+          <img  src={brandEnquiry} alt="brandEnquiry" className='h-full w-full object-cover rounded-3xl transform transition-transform duration-300 hover:scale-125' />
         </div>
         <div className='h-[25vh] lg:basis-2/5 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={() => openPopup('ourClients')}>
           <img src={ourClients} alt="ourClients" className='h-full w-full object-cover rounded-3xl transform transition-transform duration-300 hover:scale-125' />
@@ -29,7 +29,7 @@ const Bento = () => {
       </section>
 
       <section className='flex flex-col gap-4 mb-4 lg:flex-row'>
-        <div className='h-[25vh] lg:basis-2/5 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={() => openPopup('investorRelations')}>
+        <div ref = {investorRelationsRef} className='h-[25vh] lg:basis-2/5 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={() => openPopup('investorRelations')}>
           <img src={investorRelations} alt="investorRelations" className='h-full w-full object-cover rounded-3xl transform transition-transform duration-300 hover:scale-125' />
         </div>
         <div className='h-[25vh] lg:basis-3/5 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={() => openPopup('earlyAccess')}>
@@ -41,7 +41,7 @@ const Bento = () => {
         <div className='h-[25vh] lg:basis-4/7 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={() => openPopup('ourTeam')}>
           <img src={ourTeam} alt="ourTeam" className='h-full w-full object-cover rounded-3xl transform transition-transform duration-300 hover:scale-125' />
         </div>
-        <div className='h-[25vh] lg:basis-3/7 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={openJoinUsPopup}>
+        <div ref = {careersRef} className='h-[25vh] lg:basis-3/7 lg:h-[40vh] overflow-hidden rounded-3xl' onClick={openJoinUsPopup}>
           <img src={joinUs} alt="joinUs" className='h-full w-full object-cover rounded-3xl transform transition-transform duration-300 hover:scale-125' />
         </div>
       </section>

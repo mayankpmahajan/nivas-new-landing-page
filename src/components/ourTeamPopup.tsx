@@ -33,7 +33,7 @@ const ourTeamPopupComponent: React.FC<PopupProps> = ({ isOpen, onClose }) => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
             <div
                 ref={popupRef}
-                className="bg-white w-[90vw] md:w-[80vw] lg:w-[70vw] h-auto lg:h-[70vh] rounded-xl lg:rounded-3xl relative flex flex-col lg:flex-row font-montserrat overflow-hidden"
+                className="bg-white w-[90vw] md:w-[80vw] lg:w-[70vw] h-auto lg:h-[70vh] rounded-xl lg:rounded-3xl relative flex flex-col lg:flex-row  overflow-hidden"
             >
                 <section className="hidden lg:block w-full lg:w-[30%] h-[30vh] lg:h-full">
                     <img src={ourTeamPopup} alt="ourTeam" className="object-cover h-full w-full rounded-t-lg lg:rounded-l-3xl lg:rounded-t-none" />
