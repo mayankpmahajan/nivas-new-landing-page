@@ -7,7 +7,7 @@ const Info = ({ isVisbile, aboutUsRef }) => {
       <section  className="lg:flex lg:flex-row lg:space-x-12 lg:mb-12 lg:max-h-[50vh]">
         <div className={`bg-orange-700 rounded-2xl bg-gradient-to-r from-[#C13F01] to-[#EE8623] p-4 lg:p-6 text-white basis-2/3 lg:rounded-3xl ${isVisbile ? 'animate-none' : 'animate-slideInFromBottom'}`}>
           <h1 className="font-tusker text-3xl mb-2 lg:text-[3rem] lg:leading-relaxed">ABOUT US</h1>
-          <p className="font-clash text-xs lg:text-xl">
+          <p className="font-clash text-xs lg:text-[2vh] leading-normal ">
             Nivas has been the forerunner since 1991 for on-demand & sustainable
             fashion in retail and enterprise industries. Nivas has manufactured
             and shipped millions of pieces for large internationally recognised
@@ -44,9 +44,9 @@ const Info = ({ isVisbile, aboutUsRef }) => {
           <img src={ourPlatform} alt="aboutUs" className="hidden lg:block object-cover h-full w-full lg:rounded-3xl" />
         </div>
 
-        <div className={`bg-orange-700 rounded-2xl bg-gradient-to-r from-[#391A41] via-[#A51957] to-[#F5536B] p-4 lg:p-6  text-white basis-3/5 ${isVisbile ? 'animate-none' : 'animate-slideInFromBottom7'}`}>
+        <div className={`bg-orange-700 rounded-2xl bg-gradient-to-r from-[#391A41] via-[#A51957] to-[#F5536B] p-4 lg:p-6  text-white basis-3/5 ${isVisbile ? 'animate-none' : 'animate-slideInFromBottom7'}  `}>
           <h1 className="font-tusker text-3xl mb-2 capitalize lg:text-[3rem] lg:leading-relaxed">Our platform</h1>
-          <p className="font-clash text-xs lg:text-base">
+          <p className="font-clash text-xs lg:text-[1.4vh]  leading-normal xl:text-[0.9rem]">
             Welcome to our exclusive fashion and beauty destination where the
             stars  shine brightest and style knows no bounds. You are now
             stepping into a realm where 'luxury' meets
