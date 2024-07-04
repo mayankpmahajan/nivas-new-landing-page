@@ -87,13 +87,13 @@ const Footer = ({ scrollToAboutUs, setPopupOpen, openPopup, scrollToBrandEnquiry
       </section>
 
       <section className="text-white font-thin text-[0.5rem] md:pt-8 pb-4 xl:pt-[20vh] absolute bottom-0 w-full justify-center">
-        <section className="flex flex-row justify-center space-x-4 mr-[7vw]" >
+        <section className="flex flex-row justify-center space-x-4 mr-[7vw] lg:mr-0" >
           <div>Privacy Policy</div>
           <div>Terms of Service</div>
           
         </section>
         <section className='pt-1 flex justify-center items-center'>
-         <div className="mr-[7vw]"> &copy; 2024 All Rights Reserved to Naaysu Technologies Pvt ltd</div>
+         <div className="mr-[7vw] lg:mr-0"> &copy; 2024 All Rights Reserved to Naaysu Technologies Pvt ltd</div>
         </section>
         
         
