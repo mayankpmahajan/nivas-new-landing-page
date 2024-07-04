@@ -19,7 +19,7 @@ const Footer = ({ scrollToAboutUs, setPopupOpen, openPopup, scrollToBrandEnquiry
 
 
   return (
-    <footer className="bg-[#171717] my-8 p-4 w-[80vw] rounded-3xl mx-auto xl:h-[50vh] z-0 relative md:h-[30vh] h-[40vh]">
+    <footer className="bg-[#171717] my-8 p-4 w-[80vw] rounded-3xl mx-auto xl:h-[50vh] z-0 relative h-[84vw] md:h-[40vh]">
 
 
 
@@ -70,8 +70,8 @@ const Footer = ({ scrollToAboutUs, setPopupOpen, openPopup, scrollToBrandEnquiry
             </div>
           </section>
 
-          <section className="my-6 md:my-0 z-0">
-            <div className="w-80% h-[15vh] bg-red-900 md:w-[25vw] md:absolute md:right-[2vw] rounded-xl lg:h-[40%] lg:w-[30vw]  md:h-[10vh] md:top-[9vh]">
+          <section className="my-6 md:my-0 z-0 flex justify-center">
+            <div className="w-80% h-[13vh] bg-red-900 md:w-[30vw] md:absolute md:right-[2vw] rounded-xl lg:h-[40%] lg:w-[30vw]  md:h-[15vh] md:top-[9vh] mr-[1vw] ">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.98365565059!2d77.63590237467258!3d12.908771916253468!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1491170cf5f3%3A0x353519d16769a460!2s548%2C%2014th%20Main%20Rd%2C%20Sector%203%2C%20HSR%20Layout%2C%20Bengaluru%2C%20Karnataka%20560102!5e0!3m2!1sen!2sin!4v1719821380987!5m2!1sen!2sin"
                 className="object-cover h-full w-full rounded-xl"
@@ -86,13 +86,16 @@ const Footer = ({ scrollToAboutUs, setPopupOpen, openPopup, scrollToBrandEnquiry
         </section>
       </section>
 
-      <section className="text-white font-thin text-[0.5rem] lg:pt-8 pb-4 xl:pt-[20vh] absolute bottom-0 w-full ">
-        <section className="flex flex-row justify-center space-x-4 ">
+      <section className="text-white font-thin text-[0.5rem] md:pt-8 pb-4 xl:pt-[20vh] absolute bottom-0 w-full justify-center">
+        <section className="flex flex-row justify-center space-x-4 mr-[7vw]" >
           <div>Privacy Policy</div>
           <div>Terms of Service</div>
           
         </section>
-        <div className="pt-1 text-center   px-auto  "> &copy; 2024 All Rights Reserved to Naaysu Technologies Pvt ltd</div>
+        <section className='pt-1 flex justify-center items-center'>
+         <div className="mr-[7vw]"> &copy; 2024 All Rights Reserved to Naaysu Technologies Pvt ltd</div>
+        </section>
+        
         
       </section>
     </footer>
