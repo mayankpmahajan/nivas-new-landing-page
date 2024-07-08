@@ -6,13 +6,13 @@ import { MongoClient, GridFSBucket, ObjectId } from 'mongodb';
 import path from 'path';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; 
 
 app.use(cors());
 app.use(bodyParser.json());
 
 // MongoDB connection setup
-const url = 'mongodb+srv://mayankpmahajan:b7r1DNyqsiTjUAfb@cluster0.daln0bi.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Replace with your MongoDB connection string
+const url = 'mongodb+srv://mayankpmahajan:YVgYqQOMsDAEvaKM@cluster0.n7zwbwb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'; // Replace with your MongoDB connection string
 const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
 
 async function connectToMongoDB() {
