@@ -46,7 +46,7 @@ const Info = ({ isVisbile, aboutUsRef }) => {
 
         <div className={`bg-orange-700 rounded-2xl bg-gradient-to-r from-[#391A41] via-[#A51957] to-[#F5536B] p-4 lg:p-6  text-white basis-3/5 ${isVisbile ? 'animate-none' : 'animate-slideInFromBottom7'}  `}>
           <h1 className="font-tusker text-3xl mb-2 capitalize lg:text-[3rem] lg:leading-relaxed">Our platform</h1>
-          <p className="font-clash text-xs lg:text-[1.4vh]  leading-normal xl:text-[0.9rem]">
+          <p className="font-clash text-sm md:text-[1.2rem] lg:text-[0.95rem] leading-normal">
             Welcome to our exclusive fashion and beauty destination where the
             stars  shine brightest and style knows no bounds. You are now
             stepping into a realm where 'luxury' meets
