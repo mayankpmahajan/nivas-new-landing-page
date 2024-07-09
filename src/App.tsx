@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import Logo from './components/Logo';
 import Hero from './components/Hero';
 import Info from './components/Info';
@@ -9,11 +9,10 @@ function App() {
   const [isVisible, setIsVisible] = useState(true);
   // const [joinUsPopupOpen, setJoinUsPopupOpen] = useState(false); // State to manage JoinUs popup
   const [popupOpen, setPopupOpen] = useState<string | null>(null);
-  const aboutUsRef = useRef(null);
-  const brandEnquiryRef = useRef(null);
-  const careersRef = useRef(null);
-  const investorRelationsRef = useRef(null);
-
+  const aboutUsRef =  useRef<HTMLDivElement>(null);
+  const brandEnquiryRef =  useRef<HTMLDivElement>(null);
+  const careersRef =  useRef<HTMLDivElement>(null);
+  const investorRelationsRef =  useRef<HTMLDivElement>(null)
 
   const openPopup = (popupType: string) => setPopupOpen(popupType);
 
@@ -41,21 +40,22 @@ function App() {
     }
   };
 
-  const openJoinUsPopup = () => {
-    setJoinUsPopupOpen(true);
-  };
+  // const openJoinUsPopup = () => {
+  //   setJoinUsPopupOpen(true);
+  // };
 
-  const closeJoinUsPopup = () => {
-    setJoinUsPopupOpen(false);
-  };
+  // const closeJoinUsPopup = () => {
+  //   setJoinUsPopupOpen(false);
+  // };
+  
 
   return (
     <div className="">
       <Logo />
       <Hero isVisible={isVisible} setIsVisible={setIsVisible} scrollToAboutUs={scrollToAboutUs}/>
-      <Info isVisible={true} aboutUsRef={aboutUsRef} />
+      <Info isVisible={isVisible} aboutUsRef={aboutUsRef} />
       <Bento popupOpen={popupOpen} setPopupOpen={setPopupOpen} openPopup={openPopup}  brandEnquiryRef={brandEnquiryRef} careersRef={careersRef} investorRelationsRef = {investorRelationsRef} />
-      <Footer scrollToAboutUs={scrollToAboutUs} setPopupOpen = {setPopupOpen}  openPopup = {openPopup} scrollToBrandEnquiry={scrollToBrandEnquiry} scrollToCareers={scrollToCareers} scrollToInvestorRelations={scrollToInvestorRelations}/>
+      <Footer scrollToAboutUs={scrollToAboutUs} scrollToBrandEnquiry={scrollToBrandEnquiry} scrollToCareers={scrollToCareers} scrollToInvestorRelations={scrollToInvestorRelations}/>
     </div>
   );
 }

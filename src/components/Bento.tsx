@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { brandEnquiry, earlyAccess, investorRelations, joinUs, ourClients, ourTeam } from '../assets';
 import BrandEnquiryPopupComponent from './brandEnquiryPopup';
 import OurClientsPopupComponent from './ourClientsPopup';
@@ -7,7 +6,25 @@ import EarlyAccessPopupComponent from './earlyAccessPopup';
 import OurTeamPopupComponent from './ourTeamPopup';
 import JoinUsPopupComponent from './joinUsPopup';
 
-const Bento = ({popupOpen, setPopupOpen, openPopup, investorRelationsRef, careersRef, brandEnquiryRef}) => {
+import React, { RefObject } from 'react';
+
+interface BentoProps {
+  popupOpen: string | null;
+  setPopupOpen: React.Dispatch<React.SetStateAction<string | null>>;
+  openPopup: (popupType: string) => void;
+  investorRelationsRef: RefObject<HTMLDivElement>;
+  careersRef: RefObject<HTMLDivElement>;
+  brandEnquiryRef: RefObject<HTMLDivElement>;
+}
+
+const Bento: React.FC<BentoProps> = ({
+  popupOpen,
+  setPopupOpen,
+  openPopup,
+  investorRelationsRef,
+  careersRef,
+  brandEnquiryRef
+}) => {
   
 
   

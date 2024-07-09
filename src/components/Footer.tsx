@@ -1,20 +1,35 @@
-import React, { useState } from 'react';
-import { facebookLogo, instagramLogo, logoYellow, twitterLogo } from '../assets';
-import JoinUsPopupComponent from './joinUsPopup';
-
-const Footer = ({ scrollToAboutUs, setPopupOpen, openPopup, scrollToBrandEnquiry, scrollToCareers, scrollToInvestorRelations }) => {
-  const handleCareersClick = () => {// Scroll to the About Us section
-    openPopup('joinUs');
-    setPopupOpen('joinUs'); // Open the Join Us popup
-  };
+import {logoYellow,} from '../assets';
 
 
+import React from 'react';
+
+interface FooterProps {
+  scrollToAboutUs: () => void;
+  setPopupOpen: React.Dispatch<React.SetStateAction<string | null>>;
+  openPopup: (popupType: string) => void;
+  scrollToBrandEnquiry: () => void;
+  scrollToCareers: () => void;
+  scrollToInvestorRelations: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({
+  scrollToAboutUs,
+  scrollToBrandEnquiry,
+  scrollToCareers,
+  scrollToInvestorRelations
+}) => {
+  // const handleCareersClick = () => {// Scroll to the About Us section
+  //   openPopup('joinUs');
+  //   setPopupOpen('joinUs'); // Open the Join Us popup
+  // };
 
 
 
-  const closePopup = () => {
-    setPopupOpen('null');
-  };
+
+
+  // const closePopup = () => {
+  //   setPopupOpen('null');
+  // };
 
 
 
