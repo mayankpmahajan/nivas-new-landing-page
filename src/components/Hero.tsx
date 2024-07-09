@@ -1,6 +1,6 @@
 // import { useState } from "react";
 // import { hero } from "../assets";
-
+// sdfsdf
 // const Hero = ({isVisible, setIsVisible, scrollToAboutUs}) => {
 //     const [isActive, setIsActive] = useState(false);
 
