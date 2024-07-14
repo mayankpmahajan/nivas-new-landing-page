@@ -12,18 +12,6 @@
 //       //   }, 999)
         
 //     };
-
-//   return (
-//     <main className={`h-screen max-w-screen bg-black max-container relative  ${isActive ? 'animate-slideOutFromBottom':'bg-black'} `} onClick={handleClick}>
-      
-//       <div className="h-[4rem] w-full "></div>
-
-//       <section className="text-[#FFB300] font-tusker mt-5 lg:flex gap-[2vw] ml-4 mr-4 animate-fadeIn ">
-//         <div className="text-[22vw] relative flex flex-1 justify-center  lg:text-[13vw] lg:basis-3/5 lg:justify-end ">
-//           <h1 className=" bg-gradient-to-t from-black to-[#FFB300] h-[26.5vw] text-transparent bg-clip-text  lg:h-[16vw] tracking-wider ">
-//             COMING
-//           </h1>
-//           {/* <div className='absolute bg-gradient-to-t from-black to-[#FFB300] inset-x-0  h-[100%]'></div> */}
 //         </div>
 
 //         <div className="text-[22vw] flex flex-1 justify-center relative  lg:text-[13vw] lg:basis-2/5 lg:justify-start ">
