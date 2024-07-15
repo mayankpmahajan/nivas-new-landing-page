@@ -4,20 +4,7 @@
 // const Hero = ({isVisible, setIsVisible, scrollToAboutUs}) => {
 //     const [isActive, setIsActive] = useState(false);
 
-//     const handleClick = () => {
-//        scrollToAboutUs();
-//       //  setIsActive(!isActive);
-//       //  setTimeout(()=>{
-//       //       setIsVisible(!isVisible);
-//       //   }, 999)
-        
-//     };
-//         </div>
 
-//         <div className="text-[22vw] flex flex-1 justify-center relative  lg:text-[13vw] lg:basis-2/5 lg:justify-start ">
-//           <h1 className="bg-gradient-to-t from-black to-[#FFB300] h-[25.5vw] text-transparent bg-clip-text lg:h-[16vw] tracking-wider">
-//             SOON
-//           </h1>
 //         </div>
 //       </section>
 
